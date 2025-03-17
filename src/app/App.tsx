@@ -1,11 +1,12 @@
-import Test from "@/pages/Test";
+import React from 'react';
+import { RouterProvider } from 'react-router';
+import { router } from './providers/routes';
 
 function App() {
   return (
-    <>
-      <div className="text-4xl">rsdfsf</div>
-      <Test/>
-    </>
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <RouterProvider router={router} />
+    </React.Suspense>
   );
 }
 
