@@ -1,17 +1,14 @@
+import { default as ImageWithValue } from '@/shared/ui/ImgWithValue';
 interface DeepInfoProps {
-  bid: { amount: string; currencyIcon: string };
   endDate: string;
 }
 
-const DeepInfo = ({ bid, endDate }: DeepInfoProps) => {
+const DeepInfo = ({ endDate }: DeepInfoProps) => {
   return (
     <div className="flex justify-between mb-14">
       <article>
         <h3 className="font-normal text-lg">Current Bid</h3>
-        <div className="flex items-center gap-4">
-          <img className="h-8" src={bid.currencyIcon} alt="Currency" />
-          <div className="font-medium text-2xl">{bid.amount}</div>
-        </div>
+        <ImageWithValue heigh="8" text="2xl" />
       </article>
       <article className="flex flex-col items-end">
         <h3 className="font-normal text-lg">End in</h3>

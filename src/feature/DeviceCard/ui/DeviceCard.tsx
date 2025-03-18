@@ -7,15 +7,13 @@ import ImagePreview from './ImagePreview';
 
 const DeviceCard = () => {
   return (
-    <article className="flex gap-16 mb-14">
+    <article className="flex gap-16 mb-14 shadow-lg shadow-gray-500/50 p-8 rounded-2xl">
       <ImagePreview src={CanalSensor} alt="Canal sensor" />
       <article>
         <h2 className="font-semibold text-5xl mb-7">{cardData.title}</h2>
         <div className="font-normal text-lg mb-18">{cardData.description}</div>
-
         <CreatorInfo creator={cardData.creator} owner={cardData.owner} />
-        <DeepInfo bid={cardData.bid} endDate={cardData.endDate} />
-
+        <DeepInfo endDate={cardData.endDate} />
         <Button className="w-full h-20 bg-black text-white">Place Bid</Button>
       </article>
     </article>

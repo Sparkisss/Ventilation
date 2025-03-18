@@ -1,3 +1,4 @@
+import { default as CardDetails } from '@/shared/ui/CardDetails';
 interface CreatorInfoProps {
   creator: { name: string; image: string };
   owner: { name: string; image: string };
@@ -6,20 +7,8 @@ interface CreatorInfoProps {
 const CreatorInfo = ({ creator, owner }: CreatorInfoProps) => {
   return (
     <div className="flex justify-between mb-16">
-      <article className="flex gap-2 items-center">
-        <img className="h-16" src={creator.image} alt={creator.name} />
-        <div>
-          <h3 className="font-normal text-lg">Created by</h3>
-          <div className="font-medium text-2xl">{creator.name}</div>
-        </div>
-      </article>
-      <article className="flex gap-2 items-center">
-        <img className="h-16" src={owner.image} alt={owner.name} />
-        <div>
-          <h3 className="font-normal text-lg">Owned by</h3>
-          <div className="font-medium text-2xl">{owner.name}</div>
-        </div>
-      </article>
+      <CardDetails image={creator.image} imageName={creator.name} text={creator.name} />
+      <CardDetails image={owner.image} imageName={owner.name} text={owner.name} />
     </div>
   );
 };
