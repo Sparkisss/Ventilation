@@ -2,10 +2,24 @@
     "name": "monorepo",
     "private": true,
     "scripts": {
-        "start": "concurrently \"cd client && npm start\" \"cd server && npm start\"",
-        "install-all": "npm install && cd client && npm install && cd ../server && npm install"
+      "start": "concurrently \"npm --prefix client start\" \"npm --prefix server start\"",
+      "install-all": "npm install && npm --prefix client install && npm --prefix server install",
+      "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
     },
     "devDependencies": {
-        "concurrently": "^8.2.2"
+      "concurrently": "^8.2.2",
+      "eslint": "^9.22.0",
+      "eslint-config-prettier": "^10.1.1",
+      "eslint-plugin-import": "^2.31.0",
+      "eslint-plugin-prettier": "^5.2.5",
+      "eslint-plugin-react-hooks": "^5.1.0",
+      "eslint-plugin-react-refresh": "^0.4.19",
+      "@eslint/js": "^9.21.0",
+      "prettier": "^3.5.3",
+      "prettier-plugin-organize-imports": "^4.1.0",
+      "prettier-plugin-tailwindcss": "^0.6.11",
+      "typescript-eslint": "^8.24.1",
+      "typescript": "~5.7.2"
     }
-}
+  }
+  

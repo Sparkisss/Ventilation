@@ -1,11 +1,39 @@
-import express from 'express'
+import { SerialPort } from 'serialport';
+import { ReadlineParser } from '@serialport/parser-readline';
 
-const PORT = 5000;
+// Настройка Serial Port
+const serialPort = new SerialPort({
+  path: 'COM5', // Укажите правильный COM-порт
+  baudRate: 9600, // Скорость передачи данных
+});
 
-const app = express();
+const parser = serialPort.pipe(new ReadlineParser({ delimiter: '\n' }));
 
-app.get('/', (req, res) => {
-    res.status(200).json('Server is working now')
-})
+// Обработка открытия порта
+serialPort.on('open', () => {
+  console.log('Serial Port открыт');
+});
 
-app.listen(PORT, () => console.log("Server started on PORT " + PORT))
+// Обработка ошибок порта
+serialPort.on('error', (err) => {
+  console.error('Ошибка Serial Port:', err.message);
+});
+
+// Чтение данных из порта
+parser.on('data', (data) => {
+  console.log(`Получены сырые данные: "${data}"`);
+
+  const rawData = data.trim();
+  if (!rawData) {
+    console.log('Пустые данные, пропускаем...');
+    return;
+  }
+
+  console.log(`Обработанные данные: ${rawData}`);
+
+  // Преобразование строки в массив чисел
+  const dataArray = rawData.split(' ').map(Number);
+  console.log(`Массив данных:`, dataArray);
+
+  // Здесь можно добавить логику для сохранения данных в файл или другую обработку
+});

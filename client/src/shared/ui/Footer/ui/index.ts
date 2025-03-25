@@ -1,2 +1,2 @@
-export { Navigation } from "./Navigation";
-export { SocialMedia } from "./SocialMedia";
+export { Navigation } from './Navigation';
+export { SocialMedia } from './SocialMedia';

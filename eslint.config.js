@@ -11,7 +11,7 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
-      'eslint-config-prettier',
+      'prettier', // Используйте 'prettier', а не 'eslint-config-prettier'
     ],
     files: ['**/*.{ts,tsx}'],
     languageOptions: {

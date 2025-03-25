@@ -5,7 +5,11 @@ interface ImagePreviewProps {
 
 const ImagePreview = ({ src, alt }: ImagePreviewProps) => {
   return (
-    <img className="flex-1 max-w-[35%] rounded-2xl border-white" src={src} alt={alt} />
+    <img
+      className="rounded-2xl border-white w-[35%] flex justify-center items-center"
+      src={src}
+      alt={alt}
+    />
   );
 };
 

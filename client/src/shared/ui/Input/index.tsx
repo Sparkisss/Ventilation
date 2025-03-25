@@ -1,6 +1,6 @@
-import clsx from "clsx";
-import { ComponentProps, ElementType } from "react";
-import Search from "@/assets/icons/Search.svg";
+import Search from '@/assets/icons/Search.svg';
+import clsx from 'clsx';
+import { ComponentProps, ElementType } from 'react';
 
 type InputOwnProps<E extends ElementType = ElementType> = {
   value?: string;
@@ -13,13 +13,13 @@ type InputProps<E extends ElementType> = InputOwnProps<E> &
   Omit<ComponentProps<E>, keyof InputOwnProps>;
 
 const defaultProps: Partial<InputOwnProps> = {
-  value: "",
+  value: '',
   className:
-    "h-14.25 w-87 border rounded-2xl p-3 text-sm font-medium transition duration-300 bg-inputBG",
-  placeholder: "Enter text...",
+    'h-14.25 w-87 border rounded-2xl p-3 text-sm font-medium transition duration-300 bg-inputBG',
+  placeholder: 'Enter text...',
 };
 
-const defaultElement = "input";
+const defaultElement = 'input';
 
 export function Input<E extends ElementType = typeof defaultElement>({
   value = defaultProps.value,
@@ -44,8 +44,8 @@ export function Input<E extends ElementType = typeof defaultElement>({
         className={clsx(
           defaultProps.className,
           className,
-          isDisabled && "cursor-not-allowed",
-          !isDisabled && "cursor-text pl-10 focus:ring-2 focus:ring-blue-400",
+          isDisabled && 'cursor-not-allowed',
+          !isDisabled && 'cursor-text pl-10 focus:ring-2 focus:ring-blue-400',
         )}
         {...otherProps}
       />

@@ -1,14 +1,17 @@
+import Chart from '@/assets/photo/chart-pie-alt.svg';
+import Characteristic from '@/assets/photo/settings-sliders.svg';
 import { default as CardDetails } from '@/shared/ui/CardDetails';
+
 interface CreatorInfoProps {
-  creator: { name: string; image: string };
-  owner: { name: string; image: string };
+  textOne: string;
+  textTwo: string;
 }
 
-const CreatorInfo = ({ creator, owner }: CreatorInfoProps) => {
+const CreatorInfo = ({ textOne, textTwo }: CreatorInfoProps) => {
   return (
     <div className="flex justify-between mb-16">
-      <CardDetails image={creator.image} imageName={creator.name} text={creator.name} />
-      <CardDetails image={owner.image} imageName={owner.name} text={owner.name} />
+      <CardDetails image={Chart} imageName="chart" text={textOne} />
+      <CardDetails image={Characteristic} imageName={Characteristic} text={textTwo} />
     </div>
   );
 };
